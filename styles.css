@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font: 14px "Century Gothic", Futura, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.place-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.place {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.place > img {
+  margin-right: 20px;
+  min-width: 250px;
+  height: auto;
+}

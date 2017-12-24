@@ -6,6 +6,14 @@ const app = express()
 // serve static assets normally
 app.use(express.static('public'))
 
+app.get('*/styles.css', function (request, response){
+  response.sendFile(path.resolve('public', 'styles.css'))
+})
+
+app.get('*/bundle.js', function (request, response){
+  response.sendFile(path.resolve('public', 'bundle.js'))
+})
+
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
 app.get('*', function (request, response){

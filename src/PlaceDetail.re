@@ -2,11 +2,11 @@ include Common;
 
 let component = ReasonReact.statelessComponent("PlaceList");
 
-let make = (_) => {
+let make = (~place, _) => {
   ...component,
   render: (_) => {
     <div>
-      <h1>(str("My Place"))</h1>
+      <h1>(str(place))</h1>
       <div>
         (str("This will be details."))
       </div>

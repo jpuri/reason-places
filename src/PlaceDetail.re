@@ -2,13 +2,15 @@ include Common;
 
 let component = ReasonReact.statelessComponent("PlaceList");
 
-let make = (~place, _) => {
+let make = (~placeId, _) => {
   ...component,
   render: (_) => {
-    <div>
-      <h1>(str(place))</h1>
+    let placeRecord = List.find(place => place.id === placeId, PlaceData.placeList);
+    <div className="place-details-wrapper">
+      <h1>(str(placeRecord.name))</h1>
+      <img src=("/img/" ++ placeRecord.img)/>
       <div>
-        (str("This will be details."))
+        (str(placeRecord.details))
       </div>
     </div>
   }

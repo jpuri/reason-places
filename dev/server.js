@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 const app = express()
 
 // serve static assets normally
@@ -14,9 +14,7 @@ app.get('*/bundle.js', function (request, response){
   response.sendFile(path.resolve('public', 'bundle.js'))
 })
 
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-app.get('*', function (request, response){
+app.get('/*', function (request, response){
   response.sendFile(path.resolve('public', 'index.html'))
 })
 

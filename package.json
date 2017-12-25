@@ -1,7 +1,8 @@
 {
   "name": "reason-to-do",
   "scripts": {
-    "start": "bsb -make-world -w",
+    "start": "node dev/server.js",
+    "start-bsb": "bsb -make-world -w",
     "js": "bsb -make-world",
     "build": "webpack -w",
     "clean": "bsb -clean-world"
@@ -9,12 +10,12 @@
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "reason-react": "0.2.4"
+    "reason-react": "0.2.4",
+    "path": "^0.12.7",
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "bs-platform": "^2.0.0",
-    "express": "^4.16.2",
-    "path": "^0.12.7",
     "webpack": "^3.0.0"
   }
 }

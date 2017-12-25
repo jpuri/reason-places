@@ -2,18 +2,13 @@ include Common;
 
 let component = ReasonReact.statelessComponent("PlaceList");
 
-let make = (_) => {
+let make = (~reduce, _) => {
   ...component,
   render: (_) => {
+    let placeList = Array.of_list(List.map(place => <Place place reduce />, PlaceData.placeList));
     <div>
       <h1>(str("My Places"))</h1>
-      <div className="place-list">
-        <Place place=List.nth(PlaceData.placeList, 0) />
-        <Place place=List.nth(PlaceData.placeList, 1) />
-        <Place place=List.nth(PlaceData.placeList, 2) />
-        <Place place=List.nth(PlaceData.placeList, 3) />
-        <Place place=List.nth(PlaceData.placeList, 4) />
-      </div>
+      (ReasonReact.createDomElement("div", ~props={"className": "place-list"}, placeList))
     </div>
   }
 };

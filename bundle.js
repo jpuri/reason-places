@@ -14798,22 +14798,16 @@ var Caml_format = __webpack_require__(67);
 var PlaceDetail = __webpack_require__(124);
 var ReasonReact = __webpack_require__(24);
 
-var basePathLength = Common.basePath.length;
+var hash = ( unescape(window.location.hash) );
 
-var path = ( unescape(window.location.pathname.substr(basePathLength)) );
-
-console.log(path);
-
-var match_ = ( /^(\/*[A-Za-z0-9_]*)(\/([A-Za-z0-9\s]+))*/.exec(path) );
-
-console.log(match_);
+var match_ = ( /(^\#\/([A-Za-z0-9]*)\/([A-Za-z0-9]+))?/.exec(hash) );
 
 var component = ReasonReact.statelessComponent("App");
 
 function make() {
   var newrecord = component.slice();
   newrecord[/* render */9] = (function () {
-      var match = Caml_array.caml_array_get(match_, 1);
+      var match = Caml_array.caml_array_get(match_, 2);
       var match$1 = Caml_array.caml_array_get(match_, 3);
       var tmp;
       switch (match) {
@@ -14835,14 +14829,13 @@ var basePath = Common.basePath;
 
 var str = Common.str;
 
-exports.basePath       = basePath;
-exports.str            = str;
-exports.basePathLength = basePathLength;
-exports.path           = path;
-exports.match_         = match_;
-exports.component      = component;
-exports.make           = make;
-/* path Not a pure module */
+exports.basePath  = basePath;
+exports.str       = str;
+exports.hash      = hash;
+exports.match_    = match_;
+exports.component = component;
+exports.make      = make;
+/* hash Not a pure module */
 
 
 /***/ }),
@@ -19184,7 +19177,8 @@ var component = ReasonReact.statelessComponent("Place");
 
 var gotoPlace = (
     function (pathname) {
-      window.location.pathname = basePath + 'place/' + pathname;
+      window.location.hash = '#/place/' + pathname;
+      window.location.reload();
     }
   );
 

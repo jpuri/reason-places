@@ -14802,7 +14802,11 @@ var basePathLength = Common.basePath.length;
 
 var path = ( unescape(window.location.pathname.substr(basePathLength)) );
 
+console.log(path);
+
 var match_ = ( /^(\/*[A-Za-z0-9_]*)(\/([A-Za-z0-9\s]+))*/.exec(path) );
+
+console.log(match_);
 
 var component = ReasonReact.statelessComponent("App");
 

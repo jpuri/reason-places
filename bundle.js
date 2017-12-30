@@ -3689,7 +3689,7 @@ function str(prim) {
   return prim;
 }
 
-var basePath = "/reason-places";
+var basePath = "/reason-places/";
 
 exports.basePath = basePath;
 exports.str      = str;
@@ -14816,7 +14816,7 @@ function make() {
         case "/" : 
             tmp = match$1 === "" ? ReasonReact.element(/* None */0, /* None */0, PlaceList.make(/* array */[])) : ReasonReact.element(/* None */0, /* None */0, PlaceList.make(/* array */[]));
             break;
-        case "/place" : 
+        case "place" : 
             tmp = ReasonReact.element(/* None */0, /* None */0, PlaceDetail.make(Caml_format.caml_int_of_string(match$1), /* array */[]));
             break;
         default:
@@ -19180,7 +19180,7 @@ var component = ReasonReact.statelessComponent("Place");
 
 var gotoPlace = (
     function (pathname) {
-      window.location.pathname = basePath + '/place/' + pathname;
+      window.location.pathname = basePath + 'place/' + pathname;
     }
   );
 

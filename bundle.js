@@ -19190,7 +19190,7 @@ function make(place, _) {
       return React.createElement("div", {
                   className: "place"
                 }, React.createElement("img", {
-                      src: "/img/" + place[/* img */1]
+                      src: Common.basePath + ("img/" + place[/* img */1])
                     }), React.createElement("span", undefined, React.createElement("h3", undefined, Common.str(place[/* name */2])), Common.str(place[/* desc */3]), React.createElement("a", {
                           className: "place_link",
                           onClick: (function () {
@@ -20142,7 +20142,7 @@ function make(placeId, _) {
       return React.createElement("div", {
                   className: "place-details-wrapper"
                 }, React.createElement("h1", undefined, Common.str(placeRecord[/* name */2])), React.createElement("img", {
-                      src: "/img/" + placeRecord[/* img */1]
+                      src: Common.basePath + ("img/" + placeRecord[/* img */1])
                     }), React.createElement("div", undefined, Common.str(placeRecord[/* details */4])));
     });
   return newrecord;

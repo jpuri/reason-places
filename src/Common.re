@@ -21,4 +21,16 @@ type state = {
   placeId: string
 };
 
-type action = ChangePath(string);
+type event = {
+  state: state
+};
+
+type action = ChangePath(string, string);
+
+let addToWindowState: (string, string) => unit = [%bs.raw
+  {|
+    function (path, placeId) {
+      window.history.pushState({path: path, placeId: placeId}, '', path + (placeId ? '/' + placeId : ''));
+    }
+  |}
+];

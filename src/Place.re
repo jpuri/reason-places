@@ -1,17 +1,9 @@
 include Common;
 let component = ReasonReact.statelessComponent("Place");
 
-let gotoPlace: string => unit = [%bs.raw
-  {|
-    function (pathname) {
-      window.history.pushState(undefined, undefined, '/place/' + pathname);
-    }
-  |}
-];
-
 let gotoRoute = (placeId, reduce) => {
-  reduce((_) => ChangePath(placeId))();
-  gotoPlace(placeId);
+  reduce((_) => ChangePath("/place", placeId))();
+  addToWindowState("/place", placeId);
 };
 
 let make = (~place, ~reduce, _) => {

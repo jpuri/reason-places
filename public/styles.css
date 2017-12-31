@@ -47,3 +47,12 @@ h1 {
   width: 50%;
   margin: 50px 0;
 }
+
+.back-nav {
+  width: 100%;
+}
+
+.home-link {
+  cursor: pointer;
+}
+

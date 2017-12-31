@@ -14842,7 +14842,7 @@ function make() {
             tmp = placeId === "" ? ReasonReact.element(/* None */0, /* None */0, PlaceList.make(reduce, /* array */[])) : ReasonReact.element(/* None */0, /* None */0, PlaceList.make(reduce, /* array */[]));
             break;
         case "/place" : 
-            tmp = ReasonReact.element(/* None */0, /* None */0, PlaceDetail.make(Caml_format.caml_int_of_string(placeId), /* array */[]));
+            tmp = ReasonReact.element(/* None */0, /* None */0, PlaceDetail.make(Caml_format.caml_int_of_string(placeId), reduce, /* array */[]));
             break;
         default:
           tmp = ReasonReact.element(/* None */0, /* None */0, PlaceList.make(reduce, /* array */[]));
@@ -20166,14 +20166,25 @@ exports.createClass          = createClass;
 
 
 var List        = __webpack_require__(40);
+var Curry       = __webpack_require__(14);
 var React       = __webpack_require__(18);
 var Common      = __webpack_require__(23);
 var PlaceData   = __webpack_require__(70);
 var ReasonReact = __webpack_require__(24);
 
+function gotoHome(reduce) {
+  Curry._2(reduce, (function () {
+          return /* ChangePath */[
+                  "/",
+                  ""
+                ];
+        }), /* () */0);
+  return Curry._2(Common.addToWindowState, "/", "");
+}
+
 var component = ReasonReact.statelessComponent("PlaceList");
 
-function make(placeId, _) {
+function make(placeId, reduce, _) {
   var newrecord = component.slice();
   newrecord[/* render */9] = (function () {
       var placeRecord = List.find((function (place) {
@@ -20181,7 +20192,14 @@ function make(placeId, _) {
             }), PlaceData.placeList);
       return React.createElement("div", {
                   className: "place-details-wrapper"
-                }, React.createElement("h1", undefined, Common.str(placeRecord[/* name */2])), React.createElement("img", {
+                }, React.createElement("div", {
+                      className: "back-nav"
+                    }, React.createElement("a", {
+                          className: "home-link",
+                          onClick: (function () {
+                              return gotoHome(reduce);
+                            })
+                        }, Common.str("<<  Back"))), React.createElement("h1", undefined, Common.str(placeRecord[/* name */2])), React.createElement("img", {
                       src: "/img/" + placeRecord[/* img */1]
                     }), React.createElement("div", undefined, Common.str(placeRecord[/* details */4])));
     });
@@ -20194,6 +20212,7 @@ var addToWindowState = Common.addToWindowState;
 
 exports.str              = str;
 exports.addToWindowState = addToWindowState;
+exports.gotoHome         = gotoHome;
 exports.component        = component;
 exports.make             = make;
 /* component Not a pure module */

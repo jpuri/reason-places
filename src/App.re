@@ -34,7 +34,7 @@ let make = (_) => {
     <div>
       (switch (path,placeId) {
         | ("/", str) when str === "" => <PlaceList reduce />
-        | ("/place", placeId) => <PlaceDetail placeId=(int_of_string(placeId)) />
+        | ("/place", placeId) => <PlaceDetail placeId=(int_of_string(placeId)) reduce />
         | _ => <PlaceList reduce />
       })
     </div>

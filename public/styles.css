@@ -56,3 +56,7 @@ h1 {
   cursor: pointer;
 }
 
+.git-link {
+  margin: 10px;
+  text-align: right;
+}

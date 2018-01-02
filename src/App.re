@@ -32,11 +32,18 @@ let make = (_) => {
   },
   render: ({state: {path,placeId}, reduce}) => {
     <div>
-      (switch (path,placeId) {
-        | ("/", str) when str === "" => <PlaceList reduce />
-        | ("/place", placeId) => <PlaceDetail placeId=(int_of_string(placeId)) reduce />
-        | _ => <PlaceList reduce />
-      })
+      <div className="git-link">
+        <a target="_blank" href="https://github.com/jpuri/reason-places">
+          <img src=("/img/git.svg") />
+        </a>
+      </div>
+      <div>
+        (switch (path,placeId) {
+          | ("/", str) when str === "" => <PlaceList reduce />
+          | ("/place", placeId) => <PlaceDetail placeId=(int_of_string(placeId)) reduce />
+          | _ => <PlaceList reduce />
+        })
+      </div>
     </div>
   }
 };

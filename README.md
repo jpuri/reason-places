@@ -1,4 +1,4 @@
-# reason-tictactoe
+# reason-places
 
 A single page web application written using ReasonML.
 
